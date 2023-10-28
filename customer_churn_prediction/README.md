@@ -15,6 +15,27 @@
 - выбор лучшей модели и параметров
 - анализа важности признаков
 
+## Выводы:
+В результате обучения модели пришли к следующему:
+
+- Удаление признаков с высокой коллинеарностью негативно сказывается на показателях метрик. Для обучения модели выбран вариант предобработки данных, при котором признаки с высокой корреляцией удаляться не будут.
+- Лучшая модель - LGBMClassifier.
+    метрики модели:
+        'roc_auc_score' : 0.897544
+        'accuracy_score' : 0.833016
+        'std_roc_auc' : 0.008473
+    параметры лучшей модели:
+        'classifier__verbose': 0,
+        'classifier__num_leaves': 10,
+        'classifier__max_depth': 5,
+        'classifier__learning_rate': 0.5,
+        'classifier__force_row_wise': 'True',
+        'classifier__class_weight': 'balanced',
+- В результате работы модели с тестовой выборкой было получено значение метрики
+    'roc_auc_score' : 0.914435
+- В результате анализа важности признаков было выявлено:
+    С отрывом наиболее важными признаками являются 'CoopTermDays', 'TotalCharges', 'MonthlyCharges'
+
 ## Использованные библиотеки:
 pandas, numpy, matplotlib, seaborn, datetime, phik, sklearn, catboost, lightgbm, tqdm, collections
 
